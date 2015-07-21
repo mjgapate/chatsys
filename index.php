@@ -10,13 +10,15 @@
 		function postData() {
 			// 1. Instantiate XHR - Start
 		    var xhr;
-		    if (window.XMLHttpRequest) 
+		    if (window.XMLHttpRequest) {
 		        xhr = new XMLHttpRequest();
-		    else if (window.ActiveXObject) 
+		    } else if (window.ActiveXObject) {
 		        xhr = new ActiveXObject("Msxml2.XMLHTTP");
-		    else 
+		    } else {
 		        throw new Error("Ajax is not supported by your browser");
+		    }
 		    // 1. Instantiate XHR - End
+
 		
 			// 2. Handle Response from Server - Start
 		    xhr.onreadystatechange = function () {
@@ -29,9 +31,18 @@
 		    }
 		    // 2. Handle Response from Server - End
 
+		     var name = document.getElementById("name").value;
+		     var email = document.getElementById("email").value;
+		     var message = document.getElementById("message").value;
+
 		     // 3. Specify your action, location and Send to the server - Start    
-		    xhr.open('POST', 'post.php', true); 
+		    xhr.open('POST', 'post.php?name=" + name + "&email=" + email + "&message=" + message + "&return=confirm",true);', true); 
+		    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		    console.log("name = " + name);
+		    console.log("email = " + email);
+		    console.log("message = " + message);
 		    xhr.send();
+		    
 		    // 3. Specify your action, location and Send to the server - End
 
 		}
@@ -46,16 +57,16 @@
 		<table border="0" id="form-data">
 			<tr>
 				<td><label for="name">Name:</label></td>
-				<td><input type="text" name="name"><br></td>
+				<td><input type="text" id="name" name="name"><br></td>
 
 			</tr>
 			<tr>
 				<td><label for="email">Email:</label></td>
-				<td><input type="email" name="email"><br></td>
+				<td><input type="email" id="email" name="email"><br></td>
 			</tr>
 			<tr>
 				<td><label for="message">Message:</label></td>
-				<td><textarea name="message"></textarea></td>
+				<td><textarea id="message" name="message"></textarea></td>
 			</tr>
 			<tr>
 				<td><input type="submit" class="submit" value="Submit" onclick="postData()"></td>

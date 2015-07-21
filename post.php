@@ -3,29 +3,25 @@
 	$name = "";
 	$email = "";
 	$message = "";
-
+	
 	function check_data($data){
 		$data = trim($data);
 		$data = stripslashes($data);
 		return $data;
 	}
-
-	if($_POST){
-		$name = $_POST["name"];
-		$email = $_POST["email"];
-		$message = $_POST["message"];
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+		$name = isset($_POST["name"]);
+		$email = isset($_POST["email"]);
+		$message = isset($_POST["message"]);
 	}
-
-
-	echo "Hello.";
-	echo "<br>";
-	echo $name;
-	echo "<br>";
-	echo $email;
-	echo "<br>";
-	echo $message;
-	echo "<br>";
-
+	
+	$variables = [];
+	
+	array_push($variables, $name);
+	array_push($variables, $email);
+	array_push($variables, $message);
+	
+	echo json_encode($variables);
 
 ?>
 
