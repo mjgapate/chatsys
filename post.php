@@ -18,23 +18,17 @@
 	}
 
 
+	echo "Hello.";
+	echo "<br>";
+	echo $name;
+	echo "<br>";
+	echo $email;
+	echo "<br>";
+	echo $message;
+	echo "<br>";
+
+
 ?>
 
-<html>
-<head>
-	<title>Chat System practice</title>
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-
-</head>
-<body>
-	<div class="info-holder">
-		<h2>Hello.</h2>
-		<p><?php echo $name;?></p>
-		<p><?php echo $email;?></p>
-		<p><?php echo $message;?></p>
-	</div>
-</body>
-</html>
 
 	
