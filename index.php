@@ -41,9 +41,9 @@
 <body>
 
 <br>
-<div class="form-holder" id="form-data">
+<div class="form-holder">
 	<form method="post" action="post.php">
-		<table border="0">
+		<table border="0" id="form-data">
 			<tr>
 				<td><label for="name">Name:</label></td>
 				<td><input type="text" name="name"><br></td>
